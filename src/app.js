@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         data: {
             tasks: [
                 { name: "Make it simple", isDone: false },
-                { name: "Keep on task", isDone: false }
+                { name: "Keep on task", isDone: true }
             ],
         newTask:""
         },

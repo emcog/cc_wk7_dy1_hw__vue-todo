@@ -10,10 +10,10 @@
 <body>
     <div id="app">
         <ul>
-            <li v-for="(task, i) in tasks" v-bind:class="task.isPurchased ? 'done':'not-done'">
+            <li v-for="(task, i) in tasks" v-bind:class="task.isDone ? 'done':'not-done'">
                 <span>{{ task.name }}</span>
                 <span v-if="task.isDone">Done!</span>
-                <button v-if="task.isDone" v-on:click="taskDone">Done!</button>
+                <button v-if="!task.isDone" v-on:click="taskDone(i)">Done!</button>
             </li>
         </ul>
         <form v-on:submit.prevent = "saveNewTask">
