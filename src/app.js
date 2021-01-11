@@ -4,19 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
     new Vue({
         el: "app",
         data: {
-            todos: [
+            tasks: [
                 {name: "Make it simple", isDone: false },
                 {name: "Keep on task", isDone: false }
             ],
-        newTodo:""
+        newTask:""
         },
         methods: {
-            saveNewTodo: function() {
-                this.todos.push({name: this.newTodo, isDone: false });
-                this.newTodo = "";
+            saveNewTask: function() {
+                this.task.push({name: this.newTask, isDone: false });
+                this.newTask = "";
             },
-            done: function(index){
-                this.todos[index].isDone = true;
+            taskDone: function(index){
+                this.tasks[index].isDone = true;
             }
         }
     });
