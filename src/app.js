@@ -5,14 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
         el: "#app",
         data: {
             tasks: [
-                { name: "Make it simple", isDone: false },
-                { name: "Keep on task", isDone: true }
+                { name: "Make it simple", isHigh: true, isDone: false },
+                { name: "Keep on task", isHigh: false, isDone: true }
             ],
         newTask:""
         },
         methods: {
             saveNewTask: function() {
-                this.tasks.push({name: this.newTask, isDone: false });
+                this.tasks.push({name: this.newTask, isHigh: this.newTask, isDone: false });
                 this.newTask = "";
             },
             taskDone: function(index){

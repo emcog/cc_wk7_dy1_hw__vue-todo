@@ -1,0 +1,15 @@
+.not-high {
+    background-color: goldenrod;
+}
+
+.high {
+    background-color: hotpink;
+}
+
+.done {
+    background-color: darkgrey;
+}
+
+.not-done {
+    color: black;
+}

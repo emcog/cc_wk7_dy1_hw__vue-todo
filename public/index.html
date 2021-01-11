@@ -3,24 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylshee" href="./css/main.css">
+    <link rel="stylesheet" href="./css/main.css">
     <script src="./js/bundle.js"></script>
     <title>Do my Vue</title>
 </head>
 <body>
     <div id="app">
+        <form v-on:submit.prevent = "saveNewTask">
+            <label for="new-task">What todo?</label></br>
+            <input type="text" id="new" v-model="newTask" /></br>
+            <input type="radio" id="high" name="prioity" v-model="newTask">
+            <label for="high">High</label>
+            <input type="radio" id="low" name="prioity" v-model="newTask">
+            <label for="low">Low</label>
+            <input type="submit" value="Save new todo" />
+        </form>
         <ul>
-            <li v-for="(task, i) in tasks" v-bind:class="task.isDone ? 'done':'not-done'">
-                <span>{{ task.name }}</span>
+            <li v-for="(task, i) in tasks" v-bind:class="task.isDone ? 'done':'not-done'" v-bind:class="task.isHigh ? 'high':'not-high'">
+                <span>{{ task.name }}</span></br>
+                <span>{{task.test}}</span>
+                <span>{{ task.isHigh }}</span>
                 <span v-if="task.isDone">Done!</span>
                 <button v-if="!task.isDone" v-on:click="taskDone(i)">Done!</button>
             </li>
         </ul>
-        <form v-on:submit.prevent = "saveNewTask">
-            <label for="new-task">What todo?</label></br>
-            <input type="text" id="new" v-model="newTask" /></br>
-            <input type="submit" value="Save new todo" />
-        </form>
+        
     </div>
 </body>
 </html>
