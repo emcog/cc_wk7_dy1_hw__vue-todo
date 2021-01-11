@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylshee" href="./css/main.css">
+    <script src="./js/bundle.js"></script>
     <title>Do my Vue</title>
 </head>
 <body>
     <div id="app">
         <ul>
-            <li v-for="(task, i) in tasks" :class="task.isDone ? 'done:not-done'">
+            <li v-for="(task, i) in tasks" v-bind:class="task.isPurchased ? 'done':'not-done'">
                 <span>{{ task.name }}</span>
                 <span v-if="task.isDone">Done!</span>
-                <button v-if="task.isDone" v-on:click="taskDone">Done!</span>
+                <button v-if="task.isDone" v-on:click="taskDone">Done!</button>
             </li>
         </ul>
         <form v-on:submit.prevent = "saveNewTask">
-            <label for="new-task">Add todo</label>
-            <input type="text" id="new" v-model="newTask" />
+            <label for="new-task">What todo?</label></br>
+            <input type="text" id="new" v-model="newTask" /></br>
             <input type="submit" value="Save new todo" />
         </form>
     </div>
